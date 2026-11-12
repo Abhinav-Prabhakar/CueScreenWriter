@@ -8,7 +8,7 @@ import CueKit
 ///
 /// Geometry is fixed at **67 pt** at every width (the site: `14px + 26px logo + 14px + 1px`,
 /// measured 67). The row is vertically centred inside that height so the 30 pt lamp pill and
-/// the 56 pt App Store pill can both sit in it without changing the header's measured height.
+/// the 56 pt download pill can both sit in it without changing the header's measured height.
 struct HeaderBar: View {
     @Environment(SiteModel.self) private var model
     @Environment(\.theme) private var theme
@@ -17,7 +17,7 @@ struct HeaderBar: View {
     @State private var hovered: String?
 
     /// In-page anchors, in source order, paired with the labels in `SiteCopy.nav`.
-    private let anchors = ["try", "price", "features", "questions"]
+    private let anchors = ["try", "download", "features", "questions"]
 
     private var width: CGFloat { max(model.viewport.width, 320) }
     private var gutter: CGFloat { SiteMath.gutter(width) }
@@ -197,7 +197,7 @@ struct LampGlyph: Shape {
 /// no `ScrollViewProxy` reaches the header. Instead the header scrolls the page's own
 /// `NSScrollView` (the tallest scroll view in the window) to a document offset. Sections
 /// register their tops in `SiteModel`; the two anchors that belong to other agents' sections
-/// (the demo and the price line) are located from their accessibility frames, with a
+/// (the demo and the download line) are located from their accessibility frames, with a
 /// proportional fallback.
 @MainActor
 enum PageScroll {
@@ -252,8 +252,8 @@ enum PageScroll {
                 ?? accessibilityTop(matching: "CUT TO:", in: window, scroll: scroll) {
                 return top
             }
-        case "price":
-            if let top = accessibilityTop(matching: "$6.99", in: window, scroll: scroll) {
+        case "download":
+            if let top = accessibilityTop(matching: "Free forever.", in: window, scroll: scroll) {
                 return top
             }
         default:
@@ -264,7 +264,7 @@ enum PageScroll {
         if let features = model.sectionTops["features"] {
             switch id {
             case "try": return features * 0.52
-            case "price": return features * 0.38
+            case "download": return features * 0.38
             default: return features
             }
         }

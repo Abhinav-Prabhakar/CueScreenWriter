@@ -2,13 +2,14 @@
 
 **The most beautiful way to write a screenplay.**
 
-Cue is a native screenwriting app for Mac. It formats the page as you type, keeps every scene and character a glance away, and lights the desk like a lamp that follows the time of day. Everything is written in Swift and SwiftUI, with a hand-built TextKit editor — no web views, no subscriptions, and no AI writing.
+Cue is a native screenwriting app for Mac. It formats the page as you type, keeps every scene and character a glance away, and lights the desk like a lamp that follows the time of day. Everything is written in Swift and SwiftUI, with a hand-built TextKit editor — no web views, no subscriptions, and no AI writing. Cue is free: download the latest build from [GitHub Releases](https://github.com/Abhinav-Prabhakar/CueScreenWriter/releases/latest).
 
 <p align="center">
   <img src="screenshots/hero-evening.png" width="900" alt="Cue in Evening: the screenplay page, the scene panel and the ambient music player on a warm desk.">
 </p>
 
 <p align="center">
+  <a href="https://github.com/Abhinav-Prabhakar/CueScreenWriter/releases/latest"><img src="https://img.shields.io/badge/download-free-2F9E44?style=flat-square" alt="Download Cue free"></a>
   <a href="https://abhinav-prabhakar.github.io/CueScreenWriter/"><img src="https://img.shields.io/badge/landing_page-live-0B7285?style=flat-square" alt="Landing page"></a>
   <img src="https://img.shields.io/badge/macOS-15%2B-111111?style=flat-square&logo=apple&logoColor=white" alt="macOS 15 or later">
   <img src="https://img.shields.io/badge/Swift-5.0-F05138?style=flat-square&logo=swift&logoColor=white" alt="Swift 5">
@@ -42,11 +43,11 @@ A complete writing room in one window:
 
 ## The landing page
 
-The marketing site is a fully static build in [`site/`](site/) — plain HTML, CSS and JavaScript, local fonts, no CDN, no build step. It includes the working screenplay demo, the lamp picker, the illustrated feature tour and the privacy/support pages.
+The marketing site is a fully static build in [`docs/`](docs/) — plain HTML, CSS and JavaScript, local fonts, no CDN, no build step. It includes the working screenplay demo, the lamp picker, the illustrated feature tour and the privacy/support pages.
 
 **Live:** <https://abhinav-prabhakar.github.io/CueScreenWriter/>
 
-[<img src="site/preview/desktop-daylight.png" width="900" alt="The Cue landing page in Daylight.">](https://abhinav-prabhakar.github.io/CueScreenWriter/)
+[<img src="docs/preview/desktop-daylight.png" width="900" alt="The Cue landing page in Daylight.">](https://abhinav-prabhakar.github.io/CueScreenWriter/)
 
 ## Build and run
 
@@ -132,7 +133,7 @@ Cue/
 - **`CueKit`** is pure model and design language. The screenplay engine is testable on its own: `Formatter`, `GhostRules`, `ScriptAnalysis`, `PageMetrics` and the lamp/type/colour tokens all live here.
 - **`CueApp`** draws the window. The editor is an `NSTextView` subclass inside a SwiftUI page; the chrome — toolbar, glass sidebar, desk objects, sheets — never scrolls with the script.
 - **`LibraryStore`** writes a JSON manifest with ISO 8601 millisecond dates and attachments beside it. Writes are atomic; a corrupt manifest is quarantined rather than deleted. Set `CUE_DATA_DIR` to run against a throwaway store.
-- **The static site** is independent of the app build. It lives in `site/` and is published by GitHub Pages; `.nojekyll` keeps the asset folders intact.
+- **The static site** is independent of the app build. It lives in `docs/` and is published by GitHub Pages from `main`; `.nojekyll` keeps the asset folders intact.
 
 ## Design notes
 

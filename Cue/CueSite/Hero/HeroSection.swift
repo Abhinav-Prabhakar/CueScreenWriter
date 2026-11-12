@@ -1,7 +1,7 @@
 import SwiftUI
 import CueKit
 
-/// The landing hero: slug, MacBook, scroll-typed headline, lede, price promise and offer.
+/// The landing hero: slug, MacBook, scroll-typed headline, lede, free promise and offer.
 struct HeroSection: View {
     @Environment(SiteModel.self) private var model
     @Environment(\.theme) private var theme
@@ -131,7 +131,7 @@ struct HeroSection: View {
     }
 
     private var downloadLink: some View {
-        Link(destination: SiteCopy.appStoreURL) {
+        Link(destination: SiteCopy.downloadURL) {
             HStack(spacing: 10) {
                 Circle()
                     .fill(Color(hex: Hex.orange))
@@ -148,7 +148,7 @@ struct HeroSection: View {
             .shadow(color: Color(hex: 0x14110E, opacity: 0.28), radius: 13, x: 0, y: 10)
         }
         .buttonStyle(.plain)
-        .accessibilityLabel("Download Cue now on the Mac App Store")
+        .accessibilityLabel("Download Cue now from GitHub Releases")
     }
 
     private var tryLink: some View {
@@ -182,7 +182,7 @@ private struct PromiseLine: View {
     var body: some View {
         VStack(spacing: 0) {
             HStack(alignment: .top, spacing: advance) {
-                Text(SiteCopy.price + " once.")
+                Text(SiteCopy.price + " forever.")
                     .font(Fonts.script(size))
                     .foregroundStyle(theme.ink)
                     .fixedSize()
@@ -201,7 +201,7 @@ private struct PromiseLine: View {
         .frame(maxWidth: .infinity)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(
-            "\(SiteCopy.price) once. Yours to keep. No subscription, no ads, no AI writing."
+            "\(SiteCopy.price) forever. Yours to keep. No subscription, no ads, no AI writing."
         )
         .task(id: reduceMotion) {
             index = 0

@@ -8,7 +8,7 @@ Live at <https://abhinav-prabhakar.github.io/CueScreenWriter/>.
 
 ## Run it locally
 
-From this `site/` folder:
+From this `docs/` folder:
 
 ```sh
 python3 -m http.server 4173
@@ -25,7 +25,7 @@ site under that same base path:
 ```sh
 # from the repository root
 mkdir -p /tmp/cue-pages
-ln -sfn "$PWD/site" /tmp/cue-pages/CueScreenWriter
+ln -sfn "$PWD/docs" /tmp/cue-pages/CueScreenWriter
 ( cd /tmp/cue-pages && python3 -m http.server 4173 )
 ```
 
@@ -35,7 +35,7 @@ Then open <http://localhost:4173/CueScreenWriter/> or
 ## What is here
 
 ```
-site/
+docs/
 ├── index.html                     landing page
 ├── privacy.html                   privacy policy
 ├── support.html                   support and troubleshooting
@@ -57,7 +57,7 @@ site/
 
 ## The page
 
-- **Header** — wordmark, four anchors, a compact App Store button, and the lamp picker
+- **Header** — wordmark, four anchors, a compact Download button, and the lamp picker
   (Auto, Daylight, Evening, Night, plus lamp on/off). On phones the anchors move into a
   full-height menu.
 - **Hero** — the `FADE IN:` slug, a four-line headline with a typed last line, the promise
@@ -70,7 +70,7 @@ site/
 - **Extras** — the nine smaller things, in a grid.
 - **Questions** — eight answers in a native `<details>` accordion.
 - **Footer** — `FADE OUT.`, “Written, by you.”, the closing note, then Support / Privacy /
-  Mac App Store and the copyright.
+  GitHub Releases and the copyright.
 
 Privacy and support use the same header, lamp, footer and 680 px reading measure as the policy
 documents they are.
@@ -105,9 +105,9 @@ transitions in the demo. Every animation is disabled under `prefers-reduced-moti
 
 ## Deploying
 
-The site is pure static files and is published with GitHub Pages from this folder. There is
-nothing to build. Push the contents of `site/` to the branch Pages serves; `.nojekyll` keeps
-folders such as `assets/` untouched.
+The site is pure static files and is published with GitHub Pages from this folder on the
+`main` branch (Settings › Pages › Deploy from a branch: `main` / `/docs`). There is nothing to
+build, and no GitHub Actions are used. `.nojekyll` keeps folders such as `assets/` untouched.
 
 `robots.txt`, `sitemap.xml`, the canonical links and the Open Graph URLs all use the project
 Pages address. If the site moves to a custom domain, update those places together:
@@ -131,5 +131,5 @@ menus work from the keyboard.
 
 ## Contact
 
-Support: <support@cuescreenwriter.com> · App Store:
-<https://apps.apple.com/app/cue-screenwriting/id6823013313?mt=12>
+Support: <https://github.com/Abhinav-Prabhakar/CueScreenWriter/issues> · Downloads:
+<https://github.com/Abhinav-Prabhakar/CueScreenWriter/releases>

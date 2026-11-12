@@ -6,7 +6,9 @@
 
 # Build products
 Cue/.build/
+Cue/.build-release/
 .build/
+.build-*/
 DerivedData/
 *.xcuserstate
 xcuserdata/
@@ -14,8 +16,8 @@ xcuserdata/
 
 # Research material and capture tooling (not part of the product)
 /_source/
+/_reference/
 /assets/
-/docs/
 /site-capture/
 /tools/
 

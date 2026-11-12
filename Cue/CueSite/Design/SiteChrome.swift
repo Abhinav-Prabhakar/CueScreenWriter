@@ -108,7 +108,7 @@ struct AppStoreButton: View {
 
     var body: some View {
         Button {
-            openURL(SiteCopy.appStoreURL)
+            openURL(SiteCopy.downloadURL)
         } label: {
             HStack(spacing: 9) {
                 Circle().fill(theme.desk).frame(width: 7, height: 7)
@@ -121,7 +121,7 @@ struct AppStoreButton: View {
             .background(theme.ink, in: .capsule)
         }
         .buttonStyle(.plain)
-        .accessibilityLabel("Download Cue now on the Mac App Store")
+        .accessibilityLabel("Download Cue now from GitHub Releases")
     }
 }
 

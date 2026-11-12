@@ -1,16 +1,16 @@
 import Foundation
 
 public enum SiteCopy {
-    public static let price = "$6.99"
-    public static let priceNote = "Launch price. It goes up later, so early writers pay less."
-    public static let appStoreURL = URL(string: "https://apps.apple.com/app/cue-screenwriting/id6823013313?mt=12")!
+    public static let price = "Free"
+    public static let priceNote = "Free and open source. Download from GitHub Releases."
+    public static let downloadURL = URL(string: "https://github.com/Abhinav-Prabhakar/CueScreenWriter/releases/latest")!
     public static let requires = "macOS 15 Sequoia or later"
     public static let maker = "Daniel Millyard"
     public static let contactEmail = "support@cuescreenwriter.com"
     public static let privacyUpdated = "15 October 2026"
 
     // Header
-    public static let nav = ["Try it", "Price", "Features", "Questions"]
+    public static let nav = ["Try it", "Download", "Features", "Questions"]
 
     // Hero
     public static let heroSlug = "FADE IN:"
@@ -97,7 +97,7 @@ public enum SiteCopy {
     public static let questionsTitle = "Questions"
     public static let qa: [(String, String)] = [
         ("Where can I get it?",
-         "On the Mac App Store, for \(price). Pay once and it’s yours, with updates through the App Store, free."),
+         "Download the latest build from GitHub Releases, unzip it, and drag Cue to Applications. It’s free."),
         ("Which Macs does it run on?",
          "Any Mac running \(requires)."),
         ("Can I bring my scripts from Final Draft or another app?",
@@ -106,8 +106,8 @@ public enum SiteCopy {
          "Yes. Cue exports a standard screenplay PDF that anyone can read, print or submit, and Fountain, which most screenwriting apps can open."),
         ("Is there an iPad version?",
          "Not yet. The Mac comes first. An iPad version is planned."),
-        ("Why is it so cheap?",
-         "Because a place to write shouldn’t cost more than the coffee you drink while using it. Cue has no servers to run and no subscription to justify, so the price can be small and stay that way."),
+        ("Why is it free?",
+         "Because a place to write shouldn’t cost more than the coffee you drink while using it. Cue has no servers to run and no subscription to justify, and the source is open on GitHub. Download it, keep it, write."),
         ("Is Cue made with AI?",
          "Partly, and we’d rather say so. Cue is designed by \(maker), a designer and writer, and built with Claude, an AI coding assistant. The app itself has no AI in it: it doesn’t write for you, read your script or send it anywhere. It only ever suggests words you’ve already written, like a character’s name."),
         ("What isn’t Cue?",
