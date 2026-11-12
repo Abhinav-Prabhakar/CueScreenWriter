@@ -1,0 +1,1126 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0322845339A1746B5B3DFC2B /* ScriptEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FA1CE2419D8482F91DBE81 /* ScriptEditorView.swift */; };
+		05B17D86B4DD71467AD5DE34 /* CourierPrime-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21F8C33BB08C7A2D16244F2E /* CourierPrime-BoldItalic.ttf */; };
+		06E44EFE42614B80F58C2FB7 /* CueKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD4B52E05C8F076E526BC3A /* CueKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		07CDB8EF7F5D994D92D46159 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009688E6E0507A69AAC87C85 /* SidebarView.swift */; };
+		081F8B70711282614C7ABC99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F29B80E3BE77862136239FFE /* Assets.xcassets */; };
+		0F886C57363D50B3680FE1A7 /* editor-evening.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 07504826B8AD7E791949C127 /* editor-evening.jpg */; };
+		10C38248E7EA4D032154B7F3 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D00A83F3BB139A5AB99D903 /* LibraryView.swift */; };
+		13486B84CE94ACDFDE9E17B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D07F8D92D18CCDD64681AA2 /* Assets.xcassets */; };
+		14A2F4188A2FAC1640E88D26 /* Exporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705E392D6C4CFEBE41908AD3 /* Exporter.swift */; };
+		17DB8542B5FE650F1E5E5E11 /* DemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33A15827ABC343A8D5EEF7C /* DemoModel.swift */; };
+		205B0A01B47FA9CB21C9195C /* CourierPrime-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDD2898D03C3AE9F3CAD958D /* CourierPrime-Regular.ttf */; };
+		2383F6E6FCA04C0C0132FEC3 /* CourierPrime-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDD2898D03C3AE9F3CAD958D /* CourierPrime-Regular.ttf */; };
+		23C6789FB11660B0E8DE0B8C /* CourierPrime-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD6469804E77DAAFF67518E3 /* CourierPrime-Italic.ttf */; };
+		26A9A475FC0BA3D8963AFF2D /* editor-daylight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E178C710E51FB85F2B897B9 /* editor-daylight.jpg */; };
+		39593DC7D634AD0CB3201916 /* PDFImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E907A26E3089EFFA104678B0 /* PDFImport.swift */; };
+		3C1249679E5B41C396D27A3B /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1A1B5A48802918FED9CB0E /* Fonts.swift */; };
+		3D15D90C14E72153538FE108 /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2905B70D2F99E1820DB46DA1 /* Copy.swift */; };
+		3DBA3C7454D2BB8B137714A7 /* Fountain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BD141501164288A0CDCBB6 /* Fountain.swift */; };
+		3DDF46BA8494A21646B03831 /* full-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 349ED2F7DC6B7CFA643A7960 /* full-night.jpg */; };
+		40FCA186972885FE0ECBF059 /* TitlePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326EBE541CD3E8090DA55525 /* TitlePageView.swift */; };
+		44F4932856B30D54B2C3EFE1 /* CueKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD4B52E05C8F076E526BC3A /* CueKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		48C92983507774EB70694607 /* Script.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598138025DC886BD5F7E7813 /* Script.swift */; };
+		4BAC1ED2E91ED3B10FC57B92 /* CourierPrime-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD6469804E77DAAFF67518E3 /* CourierPrime-Italic.ttf */; };
+		4CA64074318B17E7EC33E476 /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F37BFB24B32F7DC17A4F2EE /* WritingView.swift */; };
+		4E30A2267089127963639C05 /* HeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9A0609E3D86BE98BAA7D3 /* HeaderBar.swift */; };
+		5067EF1F909B68F9122BD0D2 /* DemoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06606764EA21CD304D250DD /* DemoEditor.swift */; };
+		50E1AB48D006913E34C534B4 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9345EFBED14BCEB5DC142B68 /* AppModel.swift */; };
+		53676631473037D868914F94 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 698D2A270B65D06C24D1F6C6 /* LandingView.swift */; };
+		541E831D82D675360F11CAF9 /* SiteMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D03294B6B71BDDFF5DB9DCE /* SiteMath.swift */; };
+		544C6FFEB89602959A19A56D /* LibraryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60013F1468FF70F95D801D77 /* LibraryStore.swift */; };
+		5A62F1BD7F8AE9A63384FAF5 /* MusicCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A94124A17D3C3F9579E425 /* MusicCapsule.swift */; };
+		5D1A44AB834964D5C3F2CA67 /* Geist.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76184A11B97E3F976AD93764 /* Geist.ttf */; };
+		64E717EDCEEB05A517568F23 /* NoteComposerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD261E994008A6AB11546F /* NoteComposerView.swift */; };
+		70C7956CCE9E2A30C553AFBE /* MacBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA5705B6E50B787693BFF99 /* MacBookView.swift */; };
+		7E7A02E652B7848474EA3EF2 /* CueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD4B52E05C8F076E526BC3A /* CueKit.framework */; };
+		8425F39C2EA7CF98D35F9A72 /* CueSiteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAA88C29ACB063C14FBD6B8 /* CueSiteApp.swift */; };
+		870026DF829AAC0C7C4A64CE /* CueAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC2F32BECD08EC42931E41 /* CueAppTests.swift */; };
+		9143A96515754623673753A1 /* StickiesPins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E2382E3C8D2D0837177247 /* StickiesPins.swift */; };
+		918D911EF35915027CA94669 /* FeaturesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331CE0F27671C78B97B7D84E /* FeaturesSection.swift */; };
+		92963ED708015D6368545A60 /* CourierPrime-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 21F8C33BB08C7A2D16244F2E /* CourierPrime-BoldItalic.ttf */; };
+		9373FAB547AC434F1307EBD5 /* CourierPrime-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7D89EEB8E9DA63E0EFDEDD /* CourierPrime-Bold.ttf */; };
+		96B99589E4BDC8B49DD02C99 /* CueKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CB04AAD744997A21655ACD /* CueKitTests.swift */; };
+		96EBD0DAF90E7D19EF890A5D /* full-daylight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9CF3E133EE03674890FE4F2 /* full-daylight.jpg */; };
+		97B4DB2B75A64F97FEA96DA8 /* CueKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD4B52E05C8F076E526BC3A /* CueKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		99801DE3ECA719E08A039EEF /* StickyEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B695D69FDE46A89CFEB372BC /* StickyEditorView.swift */; };
+		9B36BB982E9AA42B461A3F80 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F2AF44746252CAA201689EFC /* logo.png */; };
+		9FB86DB4F394CA68F828CE84 /* editor-daylight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3E178C710E51FB85F2B897B9 /* editor-daylight.jpg */; };
+		A1111C0434486682B1675D62 /* PDFExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181B2A8EEC7F153F14D80452 /* PDFExport.swift */; };
+		A28B4FC89EFCC106E31C7056 /* CueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD4B52E05C8F076E526BC3A /* CueKit.framework */; };
+		A68DDF83FE3CCAC980A27214 /* Illustrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB43E1AB755FED248AD8EB4 /* Illustrations.swift */; };
+		A8CE15E9420C51B8D78C4469 /* full-evening.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0687E7046D5784B9D8C8C3D /* full-evening.jpg */; };
+		AA8D6A89DB09830C62C44C80 /* HeroMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4B737E2B1320A9D869350 /* HeroMock.swift */; };
+		ABA1687E249728A2DDC7D06D /* SiteFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC70281B9A5427954ED59B6 /* SiteFooter.swift */; };
+		AD4C91C5818AAD382C49FC0C /* CourierPrime-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E7D89EEB8E9DA63E0EFDEDD /* CourierPrime-Bold.ttf */; };
+		ADF3F90A504252665A11140C /* DeskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0733956A33A26910D8C24FA /* DeskView.swift */; };
+		B1120CA72E21FEF2A5FA2825 /* full-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 349ED2F7DC6B7CFA643A7960 /* full-night.jpg */; };
+		BA9D7CCA76C8753A91D010EA /* QuestionsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9322FC6FF06BDCEA2118008 /* QuestionsSection.swift */; };
+		BB7A64A2913C176FD3E9F14F /* PageFurnitureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E316E9D468BD06E95617F1 /* PageFurnitureView.swift */; };
+		BCD567D2B9752D8F862FF22C /* ScriptTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72571919A22A80C58D52B744 /* ScriptTextView.swift */; };
+		C26485BA7C7E250F00511339 /* full-evening.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A0687E7046D5784B9D8C8C3D /* full-evening.jpg */; };
+		C461FE3D7893180A696855D0 /* full-daylight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9CF3E133EE03674890FE4F2 /* full-daylight.jpg */; };
+		D49798772CA26270C9950404 /* CueKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DD4B52E05C8F076E526BC3A /* CueKit.framework */; };
+		D5CF89DFDC5D6E39A8F72630 /* editor-evening.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 07504826B8AD7E791949C127 /* editor-evening.jpg */; };
+		DBFF84F7ED8161172BDA7B59 /* TrySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E38CB227135144F99ADC78 /* TrySection.swift */; };
+		DDE8FB9431339E2C335D2354 /* HeroSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84928CA5F06FFC09FDC2C984 /* HeroSection.swift */; };
+		E18E7748186286370F51F55C /* AmbientPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA2EA7A27E9734A2C7980F4 /* AmbientPlayer.swift */; };
+		E57677CC809BF89901C2E9C8 /* Tokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CF80E68A70E1C03030C490 /* Tokens.swift */; };
+		E7D72C0884C8036D6A839868 /* Geist.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 76184A11B97E3F976AD93764 /* Geist.ttf */; };
+		E8E6CEB261FA980BEF6049E2 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B58B7D08E98DC46114AAFE /* ToolbarView.swift */; };
+		ED9EDCA813DADA89716BCF8A /* CueApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1164EC258F254D128BC006 /* CueApp.swift */; };
+		F225D74C250CDDCA50171B8B /* editor-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 670A338E39CBFDF3AB7FEAFB /* editor-night.jpg */; };
+		F881CBD4D7A72689406834F7 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F2AF44746252CAA201689EFC /* logo.png */; };
+		F94E995E646B9BDEDB483AF2 /* SiteChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AD3AF6FA7BAE6E32108D1E /* SiteChrome.swift */; };
+		FCDC268D52D067F1F0BD2F1E /* editor-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 670A338E39CBFDF3AB7FEAFB /* editor-night.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		11BDEC345E18E661C72CB03B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A710968E8080B37367BF584 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F865C0E17B1588AD2DF7A712;
+			remoteInfo = CueApp;
+		};
+		43B133DC00DC6650BFC15D21 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A710968E8080B37367BF584 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33FF8D3354692117845D5525;
+			remoteInfo = CueKit;
+		};
+		93F4ECD2B41A2D6311027B3D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A710968E8080B37367BF584 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33FF8D3354692117845D5525;
+			remoteInfo = CueKit;
+		};
+		EE438F9938F5F7FA2E27F8EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A710968E8080B37367BF584 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 33FF8D3354692117845D5525;
+			remoteInfo = CueKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0B84FED509CA4AF06160A664 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				44F4932856B30D54B2C3EFE1 /* CueKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		223DA7C03A1891B6AA1F471A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				06E44EFE42614B80F58C2FB7 /* CueKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93F047674B1528B5AE8EA3A4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				97B4DB2B75A64F97FEA96DA8 /* CueKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		009688E6E0507A69AAC87C85 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		07504826B8AD7E791949C127 /* editor-evening.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "editor-evening.jpg"; sourceTree = "<group>"; };
+		07CB04AAD744997A21655ACD /* CueKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueKitTests.swift; sourceTree = "<group>"; };
+		0DD4B52E05C8F076E526BC3A /* CueKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CueKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		181B2A8EEC7F153F14D80452 /* PDFExport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFExport.swift; sourceTree = "<group>"; };
+		1D1164EC258F254D128BC006 /* CueApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueApp.swift; sourceTree = "<group>"; };
+		21F8C33BB08C7A2D16244F2E /* CourierPrime-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CourierPrime-BoldItalic.ttf"; sourceTree = "<group>"; };
+		21FD261E994008A6AB11546F /* NoteComposerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteComposerView.swift; sourceTree = "<group>"; };
+		2905B70D2F99E1820DB46DA1 /* Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
+		2EB43E1AB755FED248AD8EB4 /* Illustrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Illustrations.swift; sourceTree = "<group>"; };
+		30E2382E3C8D2D0837177247 /* StickiesPins.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickiesPins.swift; sourceTree = "<group>"; };
+		326EBE541CD3E8090DA55525 /* TitlePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePageView.swift; sourceTree = "<group>"; };
+		32B58B7D08E98DC46114AAFE /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
+		331CE0F27671C78B97B7D84E /* FeaturesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturesSection.swift; sourceTree = "<group>"; };
+		349ED2F7DC6B7CFA643A7960 /* full-night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "full-night.jpg"; sourceTree = "<group>"; };
+		3BA2EA7A27E9734A2C7980F4 /* AmbientPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmbientPlayer.swift; sourceTree = "<group>"; };
+		3E178C710E51FB85F2B897B9 /* editor-daylight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "editor-daylight.jpg"; sourceTree = "<group>"; };
+		3F37BFB24B32F7DC17A4F2EE /* WritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
+		46CF80E68A70E1C03030C490 /* Tokens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tokens.swift; sourceTree = "<group>"; };
+		4A6F5047FFA7ED6DCE549047 /* CueKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CueKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D00A83F3BB139A5AB99D903 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		4D770EA8EE6FB9B846302531 /* CueAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CueAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FA9A0609E3D86BE98BAA7D3 /* HeaderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBar.swift; sourceTree = "<group>"; };
+		598138025DC886BD5F7E7813 /* Script.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Script.swift; sourceTree = "<group>"; };
+		60013F1468FF70F95D801D77 /* LibraryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryStore.swift; sourceTree = "<group>"; };
+		670A338E39CBFDF3AB7FEAFB /* editor-night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "editor-night.jpg"; sourceTree = "<group>"; };
+		698D2A270B65D06C24D1F6C6 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		6D07F8D92D18CCDD64681AA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		705E392D6C4CFEBE41908AD3 /* Exporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exporter.swift; sourceTree = "<group>"; };
+		71E69867EC004AB83C87E479 /* CueSite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CueSite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		72571919A22A80C58D52B744 /* ScriptTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTextView.swift; sourceTree = "<group>"; };
+		76184A11B97E3F976AD93764 /* Geist.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Geist.ttf; sourceTree = "<group>"; };
+		7D1A1B5A48802918FED9CB0E /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		7E7D89EEB8E9DA63E0EFDEDD /* CourierPrime-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CourierPrime-Bold.ttf"; sourceTree = "<group>"; };
+		84928CA5F06FFC09FDC2C984 /* HeroSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroSection.swift; sourceTree = "<group>"; };
+		91BD141501164288A0CDCBB6 /* Fountain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fountain.swift; sourceTree = "<group>"; };
+		92A94124A17D3C3F9579E425 /* MusicCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCapsule.swift; sourceTree = "<group>"; };
+		9345EFBED14BCEB5DC142B68 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		9D03294B6B71BDDFF5DB9DCE /* SiteMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteMath.swift; sourceTree = "<group>"; };
+		A0687E7046D5784B9D8C8C3D /* full-evening.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "full-evening.jpg"; sourceTree = "<group>"; };
+		AAAA88C29ACB063C14FBD6B8 /* CueSiteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueSiteApp.swift; sourceTree = "<group>"; };
+		AD6469804E77DAAFF67518E3 /* CourierPrime-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CourierPrime-Italic.ttf"; sourceTree = "<group>"; };
+		B06606764EA21CD304D250DD /* DemoEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoEditor.swift; sourceTree = "<group>"; };
+		B2FA1CE2419D8482F91DBE81 /* ScriptEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptEditorView.swift; sourceTree = "<group>"; };
+		B695D69FDE46A89CFEB372BC /* StickyEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyEditorView.swift; sourceTree = "<group>"; };
+		C0733956A33A26910D8C24FA /* DeskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeskView.swift; sourceTree = "<group>"; };
+		C5E38CB227135144F99ADC78 /* TrySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrySection.swift; sourceTree = "<group>"; };
+		D9CF3E133EE03674890FE4F2 /* full-daylight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "full-daylight.jpg"; sourceTree = "<group>"; };
+		DAEC2F32BECD08EC42931E41 /* CueAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueAppTests.swift; sourceTree = "<group>"; };
+		DDA4B737E2B1320A9D869350 /* HeroMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroMock.swift; sourceTree = "<group>"; };
+		E907A26E3089EFFA104678B0 /* PDFImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFImport.swift; sourceTree = "<group>"; };
+		E9322FC6FF06BDCEA2118008 /* QuestionsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsSection.swift; sourceTree = "<group>"; };
+		EAA5705B6E50B787693BFF99 /* MacBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacBookView.swift; sourceTree = "<group>"; };
+		EAC70281B9A5427954ED59B6 /* SiteFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteFooter.swift; sourceTree = "<group>"; };
+		EFAB5CD793CFC1BA1FDACFA5 /* CueApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CueApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0AD3AF6FA7BAE6E32108D1E /* SiteChrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteChrome.swift; sourceTree = "<group>"; };
+		F29B80E3BE77862136239FFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2AF44746252CAA201689EFC /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		F33A15827ABC343A8D5EEF7C /* DemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModel.swift; sourceTree = "<group>"; };
+		F6E316E9D468BD06E95617F1 /* PageFurnitureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageFurnitureView.swift; sourceTree = "<group>"; };
+		FDD2898D03C3AE9F3CAD958D /* CourierPrime-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CourierPrime-Regular.ttf"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07A2E58DA52245A802DF3596 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A28B4FC89EFCC106E31C7056 /* CueKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28E8BECAE952EF9646BEE940 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7E7A02E652B7848474EA3EF2 /* CueKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEE21070CFB5CA2AD124F9CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D49798772CA26270C9950404 /* CueKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		091ADD086A974600D1E550ED /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				3BA2EA7A27E9734A2C7980F4 /* AmbientPlayer.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		17CB12A432C8F0D50570E23E /* shots */ = {
+			isa = PBXGroup;
+			children = (
+				3E178C710E51FB85F2B897B9 /* editor-daylight.jpg */,
+				07504826B8AD7E791949C127 /* editor-evening.jpg */,
+				670A338E39CBFDF3AB7FEAFB /* editor-night.jpg */,
+				D9CF3E133EE03674890FE4F2 /* full-daylight.jpg */,
+				A0687E7046D5784B9D8C8C3D /* full-evening.jpg */,
+				349ED2F7DC6B7CFA643A7960 /* full-night.jpg */,
+			);
+			path = shots;
+			sourceTree = "<group>";
+		};
+		1BD6F8E9D5DF0732120054FE /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				4FA9A0609E3D86BE98BAA7D3 /* HeaderBar.swift */,
+				F0AD3AF6FA7BAE6E32108D1E /* SiteChrome.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		1C638EFCAAE81FE5F0D2A74D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C0733956A33A26910D8C24FA /* DeskView.swift */,
+				4D00A83F3BB139A5AB99D903 /* LibraryView.swift */,
+				92A94124A17D3C3F9579E425 /* MusicCapsule.swift */,
+				21FD261E994008A6AB11546F /* NoteComposerView.swift */,
+				009688E6E0507A69AAC87C85 /* SidebarView.swift */,
+				30E2382E3C8D2D0837177247 /* StickiesPins.swift */,
+				B695D69FDE46A89CFEB372BC /* StickyEditorView.swift */,
+				326EBE541CD3E8090DA55525 /* TitlePageView.swift */,
+				32B58B7D08E98DC46114AAFE /* ToolbarView.swift */,
+				3F37BFB24B32F7DC17A4F2EE /* WritingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1DB04891169A4A6903C360DE /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2EB653B91810107D6CE1FFEE /* CueAppTests */,
+				F8B1A1969EFC2FD5F4D81985 /* CueKitTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		2EB653B91810107D6CE1FFEE /* CueAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				DAEC2F32BECD08EC42931E41 /* CueAppTests.swift */,
+			);
+			path = CueAppTests;
+			sourceTree = "<group>";
+		};
+		5ECD1ADBB5ECEBB139F70026 /* CueApp */ = {
+			isa = PBXGroup;
+			children = (
+				9345EFBED14BCEB5DC142B68 /* AppModel.swift */,
+				F29B80E3BE77862136239FFE /* Assets.xcassets */,
+				1D1164EC258F254D128BC006 /* CueApp.swift */,
+				091ADD086A974600D1E550ED /* Audio */,
+				EC50F76ED0FEE49293F9ADB6 /* Document */,
+				D684D3B29336C2E441CD4303 /* Editor */,
+				1C638EFCAAE81FE5F0D2A74D /* Views */,
+			);
+			path = CueApp;
+			sourceTree = "<group>";
+		};
+		70FBFE3262225D9B99FDFF1B /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				B06606764EA21CD304D250DD /* DemoEditor.swift */,
+				F33A15827ABC343A8D5EEF7C /* DemoModel.swift */,
+				C5E38CB227135144F99ADC78 /* TrySection.swift */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		8A678380865CC0F4DA5D6F14 /* CueSite */ = {
+			isa = PBXGroup;
+			children = (
+				6D07F8D92D18CCDD64681AA2 /* Assets.xcassets */,
+				AAAA88C29ACB063C14FBD6B8 /* CueSiteApp.swift */,
+				698D2A270B65D06C24D1F6C6 /* LandingView.swift */,
+				70FBFE3262225D9B99FDFF1B /* Demo */,
+				1BD6F8E9D5DF0732120054FE /* Design */,
+				B4B3F3764DE5502683A3BDA2 /* Hero */,
+				E78C7A56A3FC82B934696180 /* Sections */,
+			);
+			path = CueSite;
+			sourceTree = "<group>";
+		};
+		95CE89202C884CEC160F070B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFAB5CD793CFC1BA1FDACFA5 /* CueApp.app */,
+				4D770EA8EE6FB9B846302531 /* CueAppTests.xctest */,
+				0DD4B52E05C8F076E526BC3A /* CueKit.framework */,
+				4A6F5047FFA7ED6DCE549047 /* CueKitTests.xctest */,
+				71E69867EC004AB83C87E479 /* CueSite.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4B3F3764DE5502683A3BDA2 /* Hero */ = {
+			isa = PBXGroup;
+			children = (
+				DDA4B737E2B1320A9D869350 /* HeroMock.swift */,
+				84928CA5F06FFC09FDC2C984 /* HeroSection.swift */,
+				EAA5705B6E50B787693BFF99 /* MacBookView.swift */,
+			);
+			path = Hero;
+			sourceTree = "<group>";
+		};
+		B5E69A9285FFD2A08BF43078 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7E7D89EEB8E9DA63E0EFDEDD /* CourierPrime-Bold.ttf */,
+				21F8C33BB08C7A2D16244F2E /* CourierPrime-BoldItalic.ttf */,
+				AD6469804E77DAAFF67518E3 /* CourierPrime-Italic.ttf */,
+				FDD2898D03C3AE9F3CAD958D /* CourierPrime-Regular.ttf */,
+				76184A11B97E3F976AD93764 /* Geist.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		BCC460155FDEEB567B5A52DB /* CueShared */ = {
+			isa = PBXGroup;
+			children = (
+				DCA01A19D6FD74D9DF4D496E /* Resources */,
+			);
+			path = CueShared;
+			sourceTree = "<group>";
+		};
+		D684D3B29336C2E441CD4303 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				F6E316E9D468BD06E95617F1 /* PageFurnitureView.swift */,
+				B2FA1CE2419D8482F91DBE81 /* ScriptEditorView.swift */,
+				72571919A22A80C58D52B744 /* ScriptTextView.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		DA76B9F434C778093A75016B = {
+			isa = PBXGroup;
+			children = (
+				5ECD1ADBB5ECEBB139F70026 /* CueApp */,
+				E03E9BF51A8B19ACDF112E2F /* CueKit */,
+				BCC460155FDEEB567B5A52DB /* CueShared */,
+				8A678380865CC0F4DA5D6F14 /* CueSite */,
+				1DB04891169A4A6903C360DE /* Tests */,
+				95CE89202C884CEC160F070B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCA01A19D6FD74D9DF4D496E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F2AF44746252CAA201689EFC /* logo.png */,
+				B5E69A9285FFD2A08BF43078 /* fonts */,
+				17CB12A432C8F0D50570E23E /* shots */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E03E9BF51A8B19ACDF112E2F /* CueKit */ = {
+			isa = PBXGroup;
+			children = (
+				2905B70D2F99E1820DB46DA1 /* Copy.swift */,
+				7D1A1B5A48802918FED9CB0E /* Fonts.swift */,
+				598138025DC886BD5F7E7813 /* Script.swift */,
+				9D03294B6B71BDDFF5DB9DCE /* SiteMath.swift */,
+				46CF80E68A70E1C03030C490 /* Tokens.swift */,
+			);
+			path = CueKit;
+			sourceTree = "<group>";
+		};
+		E78C7A56A3FC82B934696180 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				331CE0F27671C78B97B7D84E /* FeaturesSection.swift */,
+				2EB43E1AB755FED248AD8EB4 /* Illustrations.swift */,
+				E9322FC6FF06BDCEA2118008 /* QuestionsSection.swift */,
+				EAC70281B9A5427954ED59B6 /* SiteFooter.swift */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		EC50F76ED0FEE49293F9ADB6 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				705E392D6C4CFEBE41908AD3 /* Exporter.swift */,
+				91BD141501164288A0CDCBB6 /* Fountain.swift */,
+				60013F1468FF70F95D801D77 /* LibraryStore.swift */,
+				181B2A8EEC7F153F14D80452 /* PDFExport.swift */,
+				E907A26E3089EFFA104678B0 /* PDFImport.swift */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		F8B1A1969EFC2FD5F4D81985 /* CueKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				07CB04AAD744997A21655ACD /* CueKitTests.swift */,
+			);
+			path = CueKitTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0DD91530B38B724DB8F9CAF0 /* CueAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 57CAE1CF7128A69D3799B7D9 /* Build configuration list for PBXNativeTarget "CueAppTests" */;
+			buildPhases = (
+				C9B2F81A6A737C6919E38FEB /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0D5EC56A14F95C7FC23CB73E /* PBXTargetDependency */,
+			);
+			name = CueAppTests;
+			packageProductDependencies = (
+			);
+			productName = CueAppTests;
+			productReference = 4D770EA8EE6FB9B846302531 /* CueAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		33FF8D3354692117845D5525 /* CueKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 24FDBE175A277AF504768852 /* Build configuration list for PBXNativeTarget "CueKit" */;
+			buildPhases = (
+				8B6EFD5D3E8D4F41E0DA1AF3 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CueKit;
+			packageProductDependencies = (
+			);
+			productName = CueKit;
+			productReference = 0DD4B52E05C8F076E526BC3A /* CueKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BA18A8209642251EC32CC9ED /* CueSite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 943296ED19FD7E6A5F8E740F /* Build configuration list for PBXNativeTarget "CueSite" */;
+			buildPhases = (
+				5EA4EE7432E6284F89FE9444 /* Sources */,
+				6E9E676310EF775CD03CCD06 /* Resources */,
+				07A2E58DA52245A802DF3596 /* Frameworks */,
+				93F047674B1528B5AE8EA3A4 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A623CBDBE337B038CE6EB8B9 /* PBXTargetDependency */,
+			);
+			name = CueSite;
+			packageProductDependencies = (
+			);
+			productName = CueSite;
+			productReference = 71E69867EC004AB83C87E479 /* CueSite.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DBD2B9F621BBCD22FA5B45E2 /* CueKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4047A31A9EBA8785DC2F28F7 /* Build configuration list for PBXNativeTarget "CueKitTests" */;
+			buildPhases = (
+				3766E07E90553C638ADE0754 /* Sources */,
+				DEE21070CFB5CA2AD124F9CA /* Frameworks */,
+				0B84FED509CA4AF06160A664 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7E10713D35C9165C6F8025D9 /* PBXTargetDependency */,
+			);
+			name = CueKitTests;
+			packageProductDependencies = (
+			);
+			productName = CueKitTests;
+			productReference = 4A6F5047FFA7ED6DCE549047 /* CueKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F865C0E17B1588AD2DF7A712 /* CueApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE5795B390AE02E9D22F8D52 /* Build configuration list for PBXNativeTarget "CueApp" */;
+			buildPhases = (
+				E6E04923A47BF91151EDEA4A /* Sources */,
+				F7B6793F97BB7F981B6E0D98 /* Resources */,
+				28E8BECAE952EF9646BEE940 /* Frameworks */,
+				223DA7C03A1891B6AA1F471A /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC3D1286A8ECB94359EE6BD4 /* PBXTargetDependency */,
+			);
+			name = CueApp;
+			packageProductDependencies = (
+			);
+			productName = CueApp;
+			productReference = EFAB5CD793CFC1BA1FDACFA5 /* CueApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A710968E8080B37367BF584 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = 189FD828326F65D5E20F2851 /* Build configuration list for PBXProject "Cue" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = DA76B9F434C778093A75016B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 95CE89202C884CEC160F070B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F865C0E17B1588AD2DF7A712 /* CueApp */,
+				0DD91530B38B724DB8F9CAF0 /* CueAppTests */,
+				33FF8D3354692117845D5525 /* CueKit */,
+				DBD2B9F621BBCD22FA5B45E2 /* CueKitTests */,
+				BA18A8209642251EC32CC9ED /* CueSite */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E9E676310EF775CD03CCD06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13486B84CE94ACDFDE9E17B6 /* Assets.xcassets in Resources */,
+				AD4C91C5818AAD382C49FC0C /* CourierPrime-Bold.ttf in Resources */,
+				92963ED708015D6368545A60 /* CourierPrime-BoldItalic.ttf in Resources */,
+				4BAC1ED2E91ED3B10FC57B92 /* CourierPrime-Italic.ttf in Resources */,
+				2383F6E6FCA04C0C0132FEC3 /* CourierPrime-Regular.ttf in Resources */,
+				5D1A44AB834964D5C3F2CA67 /* Geist.ttf in Resources */,
+				9FB86DB4F394CA68F828CE84 /* editor-daylight.jpg in Resources */,
+				D5CF89DFDC5D6E39A8F72630 /* editor-evening.jpg in Resources */,
+				FCDC268D52D067F1F0BD2F1E /* editor-night.jpg in Resources */,
+				C461FE3D7893180A696855D0 /* full-daylight.jpg in Resources */,
+				A8CE15E9420C51B8D78C4469 /* full-evening.jpg in Resources */,
+				3DDF46BA8494A21646B03831 /* full-night.jpg in Resources */,
+				9B36BB982E9AA42B461A3F80 /* logo.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7B6793F97BB7F981B6E0D98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				081F8B70711282614C7ABC99 /* Assets.xcassets in Resources */,
+				9373FAB547AC434F1307EBD5 /* CourierPrime-Bold.ttf in Resources */,
+				05B17D86B4DD71467AD5DE34 /* CourierPrime-BoldItalic.ttf in Resources */,
+				23C6789FB11660B0E8DE0B8C /* CourierPrime-Italic.ttf in Resources */,
+				205B0A01B47FA9CB21C9195C /* CourierPrime-Regular.ttf in Resources */,
+				E7D72C0884C8036D6A839868 /* Geist.ttf in Resources */,
+				26A9A475FC0BA3D8963AFF2D /* editor-daylight.jpg in Resources */,
+				0F886C57363D50B3680FE1A7 /* editor-evening.jpg in Resources */,
+				F225D74C250CDDCA50171B8B /* editor-night.jpg in Resources */,
+				96EBD0DAF90E7D19EF890A5D /* full-daylight.jpg in Resources */,
+				C26485BA7C7E250F00511339 /* full-evening.jpg in Resources */,
+				B1120CA72E21FEF2A5FA2825 /* full-night.jpg in Resources */,
+				F881CBD4D7A72689406834F7 /* logo.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3766E07E90553C638ADE0754 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96B99589E4BDC8B49DD02C99 /* CueKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EA4EE7432E6284F89FE9444 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8425F39C2EA7CF98D35F9A72 /* CueSiteApp.swift in Sources */,
+				5067EF1F909B68F9122BD0D2 /* DemoEditor.swift in Sources */,
+				17DB8542B5FE650F1E5E5E11 /* DemoModel.swift in Sources */,
+				918D911EF35915027CA94669 /* FeaturesSection.swift in Sources */,
+				4E30A2267089127963639C05 /* HeaderBar.swift in Sources */,
+				AA8D6A89DB09830C62C44C80 /* HeroMock.swift in Sources */,
+				DDE8FB9431339E2C335D2354 /* HeroSection.swift in Sources */,
+				A68DDF83FE3CCAC980A27214 /* Illustrations.swift in Sources */,
+				53676631473037D868914F94 /* LandingView.swift in Sources */,
+				70C7956CCE9E2A30C553AFBE /* MacBookView.swift in Sources */,
+				BA9D7CCA76C8753A91D010EA /* QuestionsSection.swift in Sources */,
+				F94E995E646B9BDEDB483AF2 /* SiteChrome.swift in Sources */,
+				ABA1687E249728A2DDC7D06D /* SiteFooter.swift in Sources */,
+				DBFF84F7ED8161172BDA7B59 /* TrySection.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B6EFD5D3E8D4F41E0DA1AF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D15D90C14E72153538FE108 /* Copy.swift in Sources */,
+				3C1249679E5B41C396D27A3B /* Fonts.swift in Sources */,
+				48C92983507774EB70694607 /* Script.swift in Sources */,
+				541E831D82D675360F11CAF9 /* SiteMath.swift in Sources */,
+				E57677CC809BF89901C2E9C8 /* Tokens.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9B2F81A6A737C6919E38FEB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				870026DF829AAC0C7C4A64CE /* CueAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E6E04923A47BF91151EDEA4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E18E7748186286370F51F55C /* AmbientPlayer.swift in Sources */,
+				50E1AB48D006913E34C534B4 /* AppModel.swift in Sources */,
+				ED9EDCA813DADA89716BCF8A /* CueApp.swift in Sources */,
+				ADF3F90A504252665A11140C /* DeskView.swift in Sources */,
+				14A2F4188A2FAC1640E88D26 /* Exporter.swift in Sources */,
+				3DBA3C7454D2BB8B137714A7 /* Fountain.swift in Sources */,
+				544C6FFEB89602959A19A56D /* LibraryStore.swift in Sources */,
+				10C38248E7EA4D032154B7F3 /* LibraryView.swift in Sources */,
+				5A62F1BD7F8AE9A63384FAF5 /* MusicCapsule.swift in Sources */,
+				64E717EDCEEB05A517568F23 /* NoteComposerView.swift in Sources */,
+				A1111C0434486682B1675D62 /* PDFExport.swift in Sources */,
+				39593DC7D634AD0CB3201916 /* PDFImport.swift in Sources */,
+				BB7A64A2913C176FD3E9F14F /* PageFurnitureView.swift in Sources */,
+				0322845339A1746B5B3DFC2B /* ScriptEditorView.swift in Sources */,
+				BCD567D2B9752D8F862FF22C /* ScriptTextView.swift in Sources */,
+				07CDB8EF7F5D994D92D46159 /* SidebarView.swift in Sources */,
+				9143A96515754623673753A1 /* StickiesPins.swift in Sources */,
+				99801DE3ECA719E08A039EEF /* StickyEditorView.swift in Sources */,
+				40FCA186972885FE0ECBF059 /* TitlePageView.swift in Sources */,
+				E8E6CEB261FA980BEF6049E2 /* ToolbarView.swift in Sources */,
+				4CA64074318B17E7EC33E476 /* WritingView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0D5EC56A14F95C7FC23CB73E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F865C0E17B1588AD2DF7A712 /* CueApp */;
+			targetProxy = 11BDEC345E18E661C72CB03B /* PBXContainerItemProxy */;
+		};
+		7E10713D35C9165C6F8025D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33FF8D3354692117845D5525 /* CueKit */;
+			targetProxy = EE438F9938F5F7FA2E27F8EF /* PBXContainerItemProxy */;
+		};
+		A623CBDBE337B038CE6EB8B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33FF8D3354692117845D5525 /* CueKit */;
+			targetProxy = 43B133DC00DC6650BFC15D21 /* PBXContainerItemProxy */;
+		};
+		AC3D1286A8ECB94359EE6BD4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 33FF8D3354692117845D5525 /* CueKit */;
+			targetProxy = 93F4ECD2B41A2D6311027B3D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		137F3808BD08728E608DC58C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.cuekittests;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		41B339E82D62D14ACEB1436B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.cueapptests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cue.app/Contents/MacOS/Cue";
+			};
+			name = Release;
+		};
+		5A453132C453579B7B3D11E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.cuekit;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		78662AE568845F2191598484 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.cuekittests;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		86584D1F5FFBE2546C24B2CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		90199B24B8CA42D05061ADA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.cueapptests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cue.app/Contents/MacOS/Cue";
+			};
+			name = Debug;
+		};
+		AC346D69F7AAD9CCC4613244 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cue Site";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSHighResolutionCapable = YES;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.cuesite;
+				PRODUCT_NAME = "Cue Site";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C437A092D0AC8E0EB724DAE3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.cuekit;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		C7356599754EE8CCCF7F9883 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cue Site";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSHighResolutionCapable = YES;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.cuesite;
+				PRODUCT_NAME = "Cue Site";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D00C14845700C86835C28467 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Cue;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSHighResolutionCapable = YES;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.cue;
+				PRODUCT_NAME = Cue;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		E2E6CC8FE3172B97AF9989C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FB51A5736A460538BE8F64C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Cue;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
+				INFOPLIST_KEY_NSHighResolutionCapable = YES;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.cue;
+				PRODUCT_NAME = Cue;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		189FD828326F65D5E20F2851 /* Build configuration list for PBXProject "Cue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E2E6CC8FE3172B97AF9989C9 /* Debug */,
+				86584D1F5FFBE2546C24B2CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		24FDBE175A277AF504768852 /* Build configuration list for PBXNativeTarget "CueKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A453132C453579B7B3D11E4 /* Debug */,
+				C437A092D0AC8E0EB724DAE3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4047A31A9EBA8785DC2F28F7 /* Build configuration list for PBXNativeTarget "CueKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				137F3808BD08728E608DC58C /* Debug */,
+				78662AE568845F2191598484 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		57CAE1CF7128A69D3799B7D9 /* Build configuration list for PBXNativeTarget "CueAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90199B24B8CA42D05061ADA5 /* Debug */,
+				41B339E82D62D14ACEB1436B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		943296ED19FD7E6A5F8E740F /* Build configuration list for PBXNativeTarget "CueSite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7356599754EE8CCCF7F9883 /* Debug */,
+				AC346D69F7AAD9CCC4613244 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BE5795B390AE02E9D22F8D52 /* Build configuration list for PBXNativeTarget "CueApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D00C14845700C86835C28467 /* Debug */,
+				FB51A5736A460538BE8F64C2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A710968E8080B37367BF584 /* Project object */;
+}

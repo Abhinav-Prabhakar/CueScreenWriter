@@ -1,0 +1,115 @@
+name: Cue
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    macOS: "15.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    CODE_SIGNING_ALLOWED: NO
+    CODE_SIGN_IDENTITY: ""
+    ENABLE_HARDENED_RUNTIME: NO
+    MACOSX_DEPLOYMENT_TARGET: "15.0"
+    DEAD_CODE_STRIPPING: YES
+    SWIFT_EMIT_LOC_STRINGS: NO
+targets:
+  CueKit:
+    type: framework
+    platform: macOS
+    sources:
+      - path: CueKit
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.cuekit
+        GENERATE_INFOPLIST_FILE: YES
+        DEFINES_MODULE: YES
+  CueSite:
+    type: application
+    platform: macOS
+    sources:
+      - path: CueSite
+      - path: CueShared/Resources
+        buildPhase: resources
+    dependencies:
+      - target: CueKit
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.cuesite
+        PRODUCT_NAME: Cue Site
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Cue Site
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.productivity
+        INFOPLIST_KEY_NSPrincipalClass: NSApplication
+        INFOPLIST_KEY_NSHighResolutionCapable: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+  CueApp:
+    type: application
+    platform: macOS
+    sources:
+      - path: CueApp
+      - path: CueShared/Resources
+        buildPhase: resources
+    dependencies:
+      - target: CueKit
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.cue
+        PRODUCT_NAME: Cue
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Cue
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.productivity
+        INFOPLIST_KEY_NSPrincipalClass: NSApplication
+        INFOPLIST_KEY_NSHighResolutionCapable: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+  CueKitTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: Tests/CueKitTests
+    dependencies:
+      - target: CueKit
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.cuekittests
+        GENERATE_INFOPLIST_FILE: YES
+  CueAppTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: Tests/CueAppTests
+    dependencies:
+      - target: CueApp
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.cueapptests
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Cue.app/Contents/MacOS/Cue"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+schemes:
+  CueSite:
+    build:
+      targets:
+        CueSite: all
+    run:
+      config: Debug
+  CueApp:
+    build:
+      targets:
+        CueApp: all
+        CueAppTests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - CueAppTests
+  CueKit:
+    build:
+      targets:
+        CueKit: all
+        CueKitTests: [test]
+    test:
+      config: Debug
+      targets:
+        - CueKitTests

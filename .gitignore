@@ -1,0 +1,25 @@
+# Local junk
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Build products
+Cue/.build/
+.build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.dSYM
+
+# Research material and capture tooling (not part of the product)
+/_source/
+/assets/
+/docs/
+/site-capture/
+/tools/
+
+# Secrets
+.env
+.env.*
+*.pem
