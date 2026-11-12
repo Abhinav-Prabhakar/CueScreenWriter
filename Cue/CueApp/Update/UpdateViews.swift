@@ -95,7 +95,7 @@ struct UpdateSheet: View {
                        detail: "Restart to finish, or let Cue update itself the next time you quit.")
                 if let notes = updates.available?.notes, !notes.isEmpty {
                     ScrollView {
-                        Text(notes)
+                        Text(Self.attributed(notes))
                             .font(Fonts.ui(12))
                             .foregroundStyle(theme.ink2)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -121,6 +121,25 @@ struct UpdateSheet: View {
                 .buttonStyle(.bordered)
             }
         }
+    }
+
+    /// GitHub release notes are Markdown. Render the inline parts (bold,
+    /// italics, links, code) and keep the author's line breaks; block syntax
+    /// like `##` is left as plain text rather than shown as asterisks.
+    private static func attributed(_ notes: String) -> AttributedString {
+        var text = notes
+        // Drop heading marks but keep the words.
+        text = text
+            .split(separator: "\n", omittingEmptySubsequences: false)
+            .map { line -> String in
+                let trimmed = line.drop { $0 == "#" || $0 == " " }
+                return line.hasPrefix("#") ? String(trimmed) : String(line)
+            }
+            .joined(separator: "\n")
+        let options = AttributedString.MarkdownParsingOptions(
+            interpretedSyntax: .inlineOnlyPreservingWhitespace
+        )
+        return (try? AttributedString(markdown: text, options: options)) ?? AttributedString(notes)
     }
 
     private func status(icon: String?, title: String, detail: String) -> some View {

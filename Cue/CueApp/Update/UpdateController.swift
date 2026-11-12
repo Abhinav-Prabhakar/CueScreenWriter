@@ -304,6 +304,12 @@ final class UpdateController {
             return
         }
 
+        // A presented sheet can hold `terminate` open, and the helper is
+        // waiting for this process to disappear. Give AppKit a moment to quit
+        // cleanly, then make sure it does. Everything is already saved.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+            exit(0)
+        }
         NSApp.terminate(nil)
     }
 
