@@ -77,8 +77,8 @@ struct SiteFooter: View {
 
     private var links: some View {
         HStack(spacing: 18) {
-            link("Support", url: "https://cuescreenwriter.com/support/")
-            link("Privacy", url: "https://cuescreenwriter.com/privacy/")
+            link("Support", url: "https://github.com/Abhinav-Prabhakar/CueScreenWriter/issues")
+            link("Privacy", url: "https://abhinav-prabhakar.github.io/CueScreenWriter/privacy.html")
         }
     }
 

@@ -5,8 +5,8 @@ public enum SiteCopy {
     public static let priceNote = "Free and open source. Download from GitHub Releases."
     public static let downloadURL = URL(string: "https://github.com/Abhinav-Prabhakar/CueScreenWriter/releases/latest")!
     public static let requires = "macOS 15 Sequoia or later"
-    public static let maker = "Daniel Millyard"
-    public static let contactEmail = "support@cuescreenwriter.com"
+    public static let maker = "Abhinav Prabhakar"
+    public static let contactEmail = "https://github.com/Abhinav-Prabhakar/CueScreenWriter/issues"
     public static let privacyUpdated = "15 October 2026"
 
     // Header
@@ -109,7 +109,7 @@ public enum SiteCopy {
         ("Why is it free?",
          "Because a place to write shouldn’t cost more than the coffee you drink while using it. Cue has no servers to run and no subscription to justify, and the source is open on GitHub. Download it, keep it, write."),
         ("Is Cue made with AI?",
-         "Partly, and we’d rather say so. Cue is designed by \(maker), a designer and writer, and built with Claude, an AI coding assistant. The app itself has no AI in it: it doesn’t write for you, read your script or send it anywhere. It only ever suggests words you’ve already written, like a character’s name."),
+         "Partly, and we’d rather say so. Cue is designed and built by \(maker), with Claude, an AI coding assistant. The app itself has no AI in it: it doesn’t write for you, read your script or send it anywhere. It only ever suggests words you’ve already written, like a character’s name."),
         ("What isn’t Cue?",
          "Cue is for writing. It doesn’t do live collaboration, revision colours or production breakdowns. If your production needs those, draft in Cue and finish there.")
     ]
