@@ -46,23 +46,33 @@ struct MusicCapsule: View {
         HStack(spacing: 9) {
             playButton
 
-            VStack(alignment: .leading, spacing: 1) {
-                HStack(spacing: 6) {
-                    Circle()
-                        .fill(Color(hex: Hex.orange))
-                        .frame(width: 7, height: 7)
-                    Text(music.title)
-                        .font(Fonts.ui(15, weight: .semibold))
-                        .foregroundStyle(theme.ink)
+            Button {
+                model.showSound()
+            } label: {
+                VStack(alignment: .leading, spacing: 1) {
+                    HStack(spacing: 6) {
+                        Circle()
+                            .fill(Color(hex: Hex.orange))
+                            .frame(width: 7, height: 7)
+                        Text(music.title)
+                            .font(Fonts.ui(15, weight: .semibold))
+                            .foregroundStyle(theme.ink)
+                            .lineLimit(1)
+                    }
+                    Text(model.audio.isPreparing
+                         ? "Making the room…"
+                         : "\(music.subtitle) · \(Self.clock(music.time))")
+                        .font(Fonts.ui(12.5))
+                        .foregroundStyle(theme.ink2)
+                        .monospacedDigit()
                         .lineLimit(1)
                 }
-                Text("\(Self.clock(music.time)) / \(Self.clock(music.duration))")
-                    .font(Fonts.ui(13))
-                    .foregroundStyle(theme.ink2)
-                    .monospacedDigit()
-                    .lineLimit(1)
+                .frame(width: valueWidth, alignment: .leading)
+                .contentShape(Rectangle())
             }
-            .frame(width: valueWidth, alignment: .leading)
+            .buttonStyle(.plain)
+            .help("Open the sound library")
+            .accessibilityLabel("Now playing \(music.title). Open the sound library")
 
             Spacer(minLength: 0)
 
@@ -70,12 +80,15 @@ struct MusicCapsule: View {
                 .frame(width: waveWidth, height: 30)
 
             if showsTransport {
-                HStack(spacing: 10) {
+                HStack(spacing: 8) {
                     transport(system: "chevron.backward.2", label: "Previous track") {
                         musicSkip(-1)
                     }
                     transport(system: "chevron.forward.2", label: "Next track") {
                         musicSkip(1)
+                    }
+                    transport(system: "music.note.list", label: "Sound library") {
+                        model.showSound()
                     }
                 }
             }
@@ -118,7 +131,11 @@ struct MusicCapsule: View {
                     }
                     .shadow(color: theme.shadow.opacity(0.7), radius: 6, x: 0, y: 3)
 
-                if music.playing {
+                if model.audio.isPreparing {
+                    ProgressView()
+                        .controlSize(.small)
+                        .tint(.white)
+                } else if music.playing {
                     HStack(spacing: 4) {
                         Capsule().fill(.white).frame(width: 3, height: 16)
                         Capsule().fill(.white).frame(width: 3, height: 16)

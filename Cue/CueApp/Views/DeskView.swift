@@ -142,8 +142,6 @@ struct DeskView: View {
     @Environment(\.theme) private var theme
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
-    @State private var editingSticky: CueSticky?
-
     var body: some View {
         GeometryReader { proxy in
             let size = proxy.size
@@ -161,8 +159,11 @@ struct DeskView: View {
                         StickyOnDesk(sticky: sticky,
                                      width: stickyWidth,
                                      desk: size,
+                                     editing: model.editingStickyID == sticky.id,
                                      onMove: { point in model.moveSticky(sticky, to: point) },
-                                     onEdit: { editingSticky = sticky },
+                                     onBeginEdit: { model.beginStickyEdit(sticky) },
+                                     onChange: { model.updateSticky($0) },
+                                     onDone: { model.endStickyEdit() },
                                      onDelete: { model.deleteSticky(sticky) })
                     }
                 }
@@ -194,16 +195,6 @@ struct DeskView: View {
             .frame(width: size.width, height: size.height, alignment: .topLeading)
         }
         .animation(reduceMotion ? nil : .cueHover, value: model.sidebarVisible)
-        .sheet(item: $editingSticky) { sticky in
-            StickyEditorView(sticky: sticky) { updated in
-                model.updateSticky(updated)
-            } onDelete: {
-                model.deleteSticky(sticky)
-            }
-            .environment(model)
-            .theme(model.theme)
-            .preferredColorScheme(model.theme.colorScheme)
-        }
     }
 
     private func defaultPageRect(in size: CGSize) -> CGRect {
@@ -259,8 +250,11 @@ private struct StickyOnDesk: View {
     let sticky: CueSticky
     let width: CGFloat
     let desk: CGSize
+    let editing: Bool
     let onMove: (CGPoint) -> Void
-    let onEdit: () -> Void
+    let onBeginEdit: () -> Void
+    let onChange: (CueSticky) -> Void
+    let onDone: () -> Void
     let onDelete: () -> Void
 
     @State private var drag: CGSize = .zero
@@ -270,30 +264,46 @@ private struct StickyOnDesk: View {
     }
 
     var body: some View {
-        CueStickyNote(lines: sticky.lines,
-                      footnote: sticky.footnote,
-                      strike: sticky.strike)
-            .frame(width: width, height: height)
+        content
             .offset(drag)
             .position(x: sticky.x * desk.width, y: sticky.y * desk.height)
-            .gesture(
-                DragGesture(minimumDistance: 2)
-                    .onChanged { value in drag = value.translation }
-                    .onEnded { value in
-                        let point = CGPoint(
-                            x: (sticky.x * desk.width + value.translation.width) / desk.width,
-                            y: (sticky.y * desk.height + value.translation.height) / desk.height
-                        )
-                        onMove(point)
-                        drag = .zero
-                    }
-            )
-            .onTapGesture(count: 2, perform: onEdit)
-            .contextMenu {
-                Button("Edit Sticky…") { onEdit() }
-                Button("Delete Sticky", role: .destructive) { onDelete() }
-            }
-            .help("Drag to move. Double-click to edit.")
+            .zIndex(editing ? 20 : 1)
+            .help(editing ? "Click outside or press Escape when you’re done." : "Drag to move. Double-click to edit.")
+    }
+
+    @ViewBuilder
+    private var content: some View {
+        if editing {
+            StickyInlineEditor(sticky: sticky,
+                               width: width,
+                               height: height,
+                               onChange: onChange,
+                               onDelete: onDelete,
+                               onDone: onDone)
+        } else {
+            CueStickyNote(lines: sticky.lines,
+                          footnote: sticky.footnote,
+                          strike: sticky.strike)
+                .frame(width: width, height: height)
+                .contentShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
+                .gesture(
+                    DragGesture(minimumDistance: 2)
+                        .onChanged { value in drag = value.translation }
+                        .onEnded { value in
+                            let point = CGPoint(
+                                x: (sticky.x * desk.width + value.translation.width) / desk.width,
+                                y: (sticky.y * desk.height + value.translation.height) / desk.height
+                            )
+                            onMove(point)
+                            drag = .zero
+                        }
+                )
+                .onTapGesture(count: 2, perform: onBeginEdit)
+                .contextMenu {
+                    Button("Edit Sticky") { onBeginEdit() }
+                    Button("Delete Sticky", role: .destructive) { onDelete() }
+                }
+        }
     }
 }
 

@@ -14,7 +14,7 @@ Cue is a native screenwriting app for Mac. It formats the page as you type, keep
   <img src="https://img.shields.io/badge/macOS-15%2B-111111?style=flat-square&logo=apple&logoColor=white" alt="macOS 15 or later">
   <img src="https://img.shields.io/badge/Swift-5.0-F05138?style=flat-square&logo=swift&logoColor=white" alt="Swift 5">
   <img src="https://img.shields.io/badge/SwiftUI-native-0A84FF?style=flat-square&logo=swift&logoColor=white" alt="SwiftUI">
-  <img src="https://img.shields.io/badge/tests-32_passing-3C873A?style=flat-square" alt="32 tests passing">
+  <img src="https://img.shields.io/badge/tests-39_passing-3C873A?style=flat-square" alt="39 tests passing">
   <img src="https://img.shields.io/badge/license-MIT-222222?style=flat-square" alt="MIT license">
 </p>
 
@@ -26,9 +26,11 @@ A complete writing room in one window:
 
 - **A real screenplay engine.** Scene headings, action, characters, parentheticals, dialogue and transitions are inferred as you type. Tab cycles the element type; Return opens the next logical line; INT./EXT. and character names complete from the script itself.
 - **The desk, not a dashboard.** A scene list with eighths and cast, a character roster in their own colours, and line notes that stay pinned to the page.
-- **Loose paper.** Drag sticky notes around the desk, pin photographs beside the page, edit the title page in place and print it with the script.
+- **Loose paper.** Double-click the desk to drop a sticky note exactly where you clicked, then write in it in place — tint, cross out, delete and finish without ever opening a dialog. Pin photographs beside the page, and rename the script by double-clicking its title.
 - **Three kinds of light.** Daylight, Evening and Night, plus Auto. The lamp can be dimmed, and the whole interface follows.
-- **A quiet soundtrack.** Three synthesized room tones — *Night Drive*, *Rain on Glass* and *Room Tone* — with a working transport and no external audio files.
+- **A sound library.** Fourteen synthesized rooms across Focus, Weather and Places — from *Night Drive* and *Tape Hiss* to *Distant Thunder*, *Café Murmur* and *Harbour Fog*. Rendered on the Mac as you use them, with a real transport, a volume control and no audio files or downloads.
+- **Updates that stay out of the way.** Cue asks GitHub Releases once a month, downloads a newer build in the background and installs it the next time you quit. Check any time with `⌘U`, from the menu bar, or in Settings.
+- **At home on the Mac.** A native Settings window, a menu bar extra, a full Touch Bar (transport, rooms, lamp, notes, sticky, title page, sidebar) and real AppKit context menus on the desk.
 - **Your files, on your Mac.** Scripts live as a readable JSON manifest with their attachments in `~/Library/Application Support/Cue`. Import and export Fountain; import and export screenplay PDFs.
 
 <p align="center">
@@ -81,7 +83,7 @@ xcodegen generate
 
 ### Tests
 
-The repository has 32 tests: 17 for the model and formatting rules, and 15 for the document store, Fountain round trips, PDF import/export and the desk model.
+The repository has 39 tests: 20 for the model, formatting rules and update versioning, and 19 for the document store, Fountain round trips, PDF import/export, the desk model, sticky placement and title renaming.
 
 ```sh
 cd Cue
@@ -105,6 +107,8 @@ The app tests are hosted inside `Cue.app`, so they exercise the same bundle and 
 | Add a note on the current line | `⇧⌘N` |
 | Save now | `⌘S` |
 | Add a sticky note | `⇧⌘T` |
+| Sound library | `⇧⌘M` |
+| Check for updates | `⌘U` |
 | Import a script | `⌘O` |
 | Export PDF | `⇧⌘E` |
 | Export Fountain | `⌥⌘E` |
@@ -123,7 +127,9 @@ Cue/
 │   ├── Editor/       TextKit editor, page furniture, selection and note anchoring
 │   ├── Views/        library, writing screen, sidebar, desk objects, sheets
 │   ├── Document/     Fountain, PDF import/export, the library store
-│   ├── Audio/        synthesized ambient tracks and transport
+│   ├── Audio/        fourteen synthesized rooms and the transport
+│   ├── Update/       GitHub release checks, staging and the install helper
+│   ├── TouchBar/     the window's Touch Bar
 │   └── AppModel.swift
 ├── CueSite/          a native SwiftUI rendering of the marketing page
 ├── CueShared/        bundled fonts and app screenshots
@@ -143,7 +149,7 @@ The page geometry follows standard US Letter proportions (8.5 × 11 in), with th
 
 ## Data and privacy
 
-Cue does not have an account, a server or analytics. Scripts, notes and images never leave the Mac unless you export them. The synthesized music is generated in-process. The marketing site is static and stores only the lamp choice in `localStorage`.
+Cue does not have an account, analytics or an update service of its own. Scripts, notes and images never leave the Mac unless you export them. The one network request is the monthly (or manual) check for a newer release on GitHub; the download comes straight from the repository. The sound library is generated in-process. The marketing site is static and stores only the lamp choice in `localStorage`.
 
 ## License and credits
 

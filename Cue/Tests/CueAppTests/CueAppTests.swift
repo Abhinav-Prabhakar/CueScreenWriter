@@ -294,3 +294,56 @@ final class PDFTests: XCTestCase {
         XCTAssertThrowsError(try PDFImporter.parse(url: url))
     }
 }
+
+@MainActor
+final class AppModelTests: XCTestCase {
+    private var root: URL!
+    private var model: AppModel!
+
+    override func setUpWithError() throws {
+        root = FileManager.default.temporaryDirectory
+            .appendingPathComponent("cue-model-tests-\(UUID().uuidString)", isDirectory: true)
+        try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
+        model = AppModel(store: LibraryStore(root: root))
+    }
+
+    override func tearDownWithError() throws {
+        model = nil
+        try? FileManager.default.removeItem(at: root)
+    }
+
+    func testStickyIsCreatedWhereTheDeskWasClicked() throws {
+        let sticky = try XCTUnwrap(model.addSticky(at: CGPoint(x: 0.37, y: 0.61), beginEditing: true))
+        XCTAssertEqual(sticky.x, 0.37, accuracy: 0.0001)
+        XCTAssertEqual(sticky.y, 0.61, accuracy: 0.0001)
+        XCTAssertEqual(model.current.stickies.last?.id, sticky.id)
+        XCTAssertEqual(model.editingStickyID, sticky.id)
+    }
+
+    func testStickyPointsAreClampedToTheDesk() throws {
+        let sticky = try XCTUnwrap(model.addSticky(at: CGPoint(x: 2, y: -4), beginEditing: false))
+        XCTAssertEqual(sticky.x, 0.86, accuracy: 0.0001)
+        XCTAssertEqual(sticky.y, 0.10, accuracy: 0.0001)
+        XCTAssertNil(model.editingStickyID)
+    }
+
+    func testRenamingTheScriptUpdatesTheDocumentAndScript() {
+        model.setTitle("  One Good Line  ")
+        XCTAssertEqual(model.title, "One Good Line")
+        XCTAssertEqual(model.currentScript.title, "One Good Line")
+        XCTAssertNil(model.current.shelfTitle)
+    }
+
+    func testStickyEditingCanBeEnded() throws {
+        let sticky = try XCTUnwrap(model.addSticky(beginEditing: true))
+        model.endStickyEdit()
+        XCTAssertNil(model.editingStickyID)
+        var changed = sticky
+        changed.text = "Revised"
+        changed.tint = 2
+        changed.strike = true
+        model.updateSticky(changed)
+        XCTAssertEqual(model.current.stickies.last?.text, "Revised")
+        XCTAssertEqual(model.current.stickies.last?.strike, true)
+    }
+}

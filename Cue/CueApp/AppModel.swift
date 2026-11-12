@@ -154,6 +154,10 @@ final class AppModel {
     var noteDraft: NoteDraft?
     var scrollRequest: ScrollRequest?
     var showHelp = false
+    var showSoundLibrary = false
+    var showTitlePage = false
+    var editingStickyID: UUID?
+    var isRenamingTitle = false
 
     let lamp = LampController(persist: true)
     var lit: Bool {
@@ -163,6 +167,7 @@ final class AppModel {
 
     var music = MusicState()
     let audio = AmbientPlayer()
+    let updates = UpdateController()
 
     var theme: Theme { Theme.of(lamp.lamp) }
 
@@ -193,7 +198,10 @@ final class AppModel {
             object: nil,
             queue: .main
         ) { [weak self] _ in
-            Task { @MainActor in self?.flush() }
+            Task { @MainActor in
+                self?.flush()
+                self?.updates.installOnQuitIfNeeded()
+            }
         }
     }
 
@@ -352,6 +360,12 @@ final class AppModel {
 
     func setTitle(_ newTitle: String) {
         rename(current, to: newTitle)
+        isRenamingTitle = false
+    }
+
+    func beginTitleRename() {
+        guard route == .writing else { return }
+        isRenamingTitle = true
     }
 
     // MARK: Import and export
@@ -433,7 +447,7 @@ final class AppModel {
         return false
     }
 
-    func pinPhotoPanel() {
+    func pinPhotoPanel(at point: CGPoint = CGPoint(x: 0.10, y: 0.18)) {
         let panel = NSOpenPanel()
         panel.title = "Pin a Photo"
         panel.message = "Choose an image to keep beside the page."
@@ -441,7 +455,7 @@ final class AppModel {
         panel.allowsMultipleSelection = false
         panel.canChooseDirectories = false
         guard panel.runModal() == .OK, let url = panel.url else { return }
-        addPin(from: url, at: CGPoint(x: 0.10, y: 0.18))
+        addPin(from: url, at: point)
     }
 
     func exportPDF() {
@@ -586,15 +600,32 @@ final class AppModel {
 
     // MARK: Desk objects
 
-    func addSticky(at point: CGPoint = CGPoint(x: 0.16, y: 0.57)) {
-        guard let index = documents.firstIndex(where: { $0.id == currentID }) else { return }
-        var sticky = CueSticky(text: "New note\n\nDouble-click to edit.",
+    @discardableResult
+    func addSticky(at point: CGPoint = CGPoint(x: 0.16, y: 0.57),
+                   beginEditing: Bool = true) -> CueSticky? {
+        guard let index = documents.firstIndex(where: { $0.id == currentID }) else { return nil }
+        let sticky = CueSticky(text: "",
                                tint: documents[index].stickies.count % 4,
-                               x: min(0.82, max(0.05, point.x)),
-                               y: min(0.82, max(0.12, point.y)))
-        sticky.text = "New note"
+                               x: min(0.86, max(0.04, point.x)),
+                               y: min(0.86, max(0.10, point.y)))
         documents[index].stickies.append(sticky)
+        if beginEditing {
+            // The loose paper lives on the open desk; with the glass sidebar
+            // out, the note would be created behind it. Clear the desk so the
+            // note lands, visible, exactly where the writer clicked.
+            sidebarVisible = false
+            editingStickyID = sticky.id
+        }
         scheduleSave()
+        return sticky
+    }
+
+    func beginStickyEdit(_ sticky: CueSticky) {
+        editingStickyID = sticky.id
+    }
+
+    func endStickyEdit() {
+        editingStickyID = nil
     }
 
     func updateSticky(_ sticky: CueSticky) {
@@ -614,6 +645,7 @@ final class AppModel {
     func deleteSticky(_ sticky: CueSticky) {
         guard let index = documents.firstIndex(where: { $0.id == currentID }) else { return }
         documents[index].stickies.removeAll { $0.id == sticky.id }
+        if editingStickyID == sticky.id { editingStickyID = nil }
         scheduleSave()
     }
 
@@ -735,13 +767,19 @@ final class AppModel {
     }
 
     func selectTrack(_ index: Int) {
-        audio.select(index)
+        audio.select(index, play: true)
         syncMusic()
+    }
+
+    func showSound() {
+        showSoundLibrary = true
     }
 
     func syncMusic() {
         music.playing = audio.playing
         music.title = audio.track.title
+        music.subtitle = audio.track.subtitle
+        music.preparing = audio.isPreparing
         music.duration = max(1, Int(audio.duration.rounded()))
         music.time = min(music.duration - 1, max(0, Int(audio.elapsed.rounded())))
         music.palette = audio.track.palette.map { Color(hex: $0) }
@@ -863,8 +901,10 @@ enum SaveState: Equatable {
 
 struct MusicState {
     var playing = false
+    var preparing = false
     var title = "Night Drive"
-    var duration = 180
+    var subtitle = "Warm pad, slow road"
+    var duration = 90
     var time = 0
     var palette: [Color] = [Color(hex: 0x5B3F8C), Color(hex: 0xC2577A), Color(hex: 0xE59A4E)]
     var bars = 34

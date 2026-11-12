@@ -48,22 +48,6 @@ struct CueToolbarButton: View {
     }
 }
 
-/// Cue's own sounds, separate from the writer's music.
-struct CueSpeakerButton: View {
-    @AppStorage("cue.sounds") private var soundsOn = true
-    var size: CGFloat = 13.5
-
-    var body: some View {
-        CueToolbarButton(
-            system: soundsOn ? "speaker.wave.2" : "speaker.slash",
-            label: soundsOn ? "Mute Cue sounds" : "Turn on Cue sounds",
-            size: size
-        ) {
-            soundsOn.toggle()
-        }
-    }
-}
-
 struct CueLampButton: View {
     var showsTitle: Bool = true
     @Environment(AppModel.self) private var model
@@ -129,6 +113,8 @@ struct ToolbarView: View {
     @Environment(AppModel.self) private var model
     @Environment(\.theme) private var theme
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var draftTitle = ""
+    @FocusState private var titleFocused: Bool
 
     var body: some View {
         GeometryReader { proxy in
@@ -162,11 +148,38 @@ struct ToolbarView: View {
 
     private var titleReadout: some View {
         HStack(spacing: 11) {
-            Text(model.title)
-                .font(Fonts.ui(15, weight: .medium))
-                .foregroundStyle(theme.ink)
-                .lineLimit(1)
-                .truncationMode(.tail)
+            if model.isRenamingTitle {
+                TextField("Script title", text: $draftTitle)
+                    .textFieldStyle(.plain)
+                    .font(Fonts.ui(15, weight: .medium))
+                    .foregroundStyle(theme.ink)
+                    .focused($titleFocused)
+                    .frame(width: 230)
+                    .padding(.horizontal, 7)
+                    .padding(.vertical, 3)
+                    .background(theme.desk.opacity(0.6),
+                                in: RoundedRectangle(cornerRadius: 5, style: .continuous))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 5, style: .continuous)
+                            .strokeBorder(Color(hex: Hex.orange).opacity(0.55), lineWidth: 1)
+                    }
+                    .onSubmit { commitTitle() }
+                    .onExitCommand { cancelTitle() }
+                    .onChange(of: titleFocused) { _, focused in
+                        if !focused { commitTitle() }
+                    }
+                    .onAppear { titleFocused = true }
+                    .accessibilityLabel("Script title")
+            } else {
+                Text(model.title)
+                    .font(Fonts.ui(15, weight: .medium))
+                    .foregroundStyle(theme.ink)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+                    .onTapGesture(count: 2) { beginTitleRename() }
+                    .help("Double-click to rename")
+                    .accessibilityAddTraits(.isButton)
+            }
 
             Text("Scene \(model.position.scene) · Page \(model.position.page) of \(model.position.pages)")
                 .font(Fonts.ui(15))
@@ -174,8 +187,33 @@ struct ToolbarView: View {
                 .lineLimit(1)
                 .fixedSize()
         }
-        .accessibilityElement(children: .combine)
+        .accessibilityElement(children: .contain)
         .accessibilityLabel("\(model.title), scene \(model.position.scene), page \(model.position.page) of \(model.position.pages)")
+        .onChange(of: model.isRenamingTitle) { _, renaming in
+            if renaming {
+                draftTitle = model.title
+                titleFocused = true
+            }
+        }
+    }
+
+    private func beginTitleRename() {
+        draftTitle = model.title
+        model.isRenamingTitle = true
+    }
+
+    private func commitTitle() {
+        guard model.isRenamingTitle else { return }
+        let clean = draftTitle.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !clean.isEmpty, clean != model.title {
+            model.setTitle(clean)
+        } else {
+            model.isRenamingTitle = false
+        }
+    }
+
+    private func cancelTitle() {
+        model.isRenamingTitle = false
     }
 
     // MARK: Left
@@ -226,7 +264,20 @@ struct ToolbarView: View {
                 model.beginNote()
             }
 
-            CueSpeakerButton(size: 14)
+            if model.updates.phase == .ready {
+                Button {
+                    model.updates.showSheet = true
+                } label: {
+                    Image(systemName: "arrow.down.circle.fill")
+                        .font(.system(size: 14))
+                        .foregroundStyle(Color(hex: Hex.orange))
+                        .frame(width: 22, height: 24)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .help("An update is ready")
+                .accessibilityLabel("Update ready, Cue \(model.updates.available?.version ?? "")")
+            }
 
             CueLampButton(showsTitle: true)
 

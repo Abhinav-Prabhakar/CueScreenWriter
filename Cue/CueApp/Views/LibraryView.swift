@@ -155,7 +155,6 @@ struct LibraryView: View {
             importButton
 
             searchField
-            CueSpeakerButton(size: 14)
 
             CueLampButton(showsTitle: false)
         }

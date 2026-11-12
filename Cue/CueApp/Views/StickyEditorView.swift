@@ -1,134 +1,210 @@
 import SwiftUI
+import AppKit
 import CueKit
 
-/// Edit a sticky without leaving the desk. The sheet is a small square of paper
-/// with the same tints as the marker palette; strikethrough is a first-class
-/// control because crossing something off is how a desk gets tidy.
-struct StickyEditorView: View {
-    @Environment(\.theme) private var theme
-    @Environment(\.dismiss) private var dismiss
+/// Editing a sticky happens on the desk, in the note itself. No sheet, no
+/// second dialog: the paper becomes editable, and tint, cross-out and delete
+/// live in a small strip along its bottom edge.
+struct StickyInlineEditor: View {
+    var sticky: CueSticky
+    var width: CGFloat
+    var height: CGFloat
+    var onChange: (CueSticky) -> Void
+    var onDelete: () -> Void
+    var onDone: () -> Void
 
+    @Environment(\.theme) private var theme
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var draft: CueSticky
-    private let onSave: (CueSticky) -> Void
-    private let onDelete: () -> Void
     @FocusState private var focused: Bool
 
     init(sticky: CueSticky,
-         onSave: @escaping (CueSticky) -> Void,
-         onDelete: @escaping () -> Void) {
-        _draft = State(initialValue: sticky)
-        self.onSave = onSave
+         width: CGFloat,
+         height: CGFloat,
+         onChange: @escaping (CueSticky) -> Void,
+         onDelete: @escaping () -> Void,
+         onDone: @escaping () -> Void) {
+        self.sticky = sticky
+        self.width = width
+        self.height = height
+        self.onChange = onChange
         self.onDelete = onDelete
+        self.onDone = onDone
+        _draft = State(initialValue: sticky)
     }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            HStack(alignment: .firstTextBaseline) {
-                Text("Sticky note")
-                    .font(Fonts.ui(19, weight: .semibold))
-                    .foregroundStyle(theme.ink)
-                Spacer()
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 12, weight: .medium))
-                        .foregroundStyle(theme.ink2)
-                        .frame(width: 28, height: 28)
-                        .contentShape(Rectangle())
-                }
-                .buttonStyle(.plain)
-                .keyboardShortcut(.cancelAction)
-                .accessibilityLabel("Close")
-            }
-            .padding(.bottom, 14)
-
             TextEditor(text: $draft.text)
                 .font(Fonts.ui(15))
                 .foregroundStyle(theme.ink)
+                .strikethrough(draft.strike, color: theme.ink.opacity(0.75))
                 .scrollContentBackground(.hidden)
-                .padding(12)
-                .frame(height: 170)
-                .background {
-                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .fill(NoteTint.color(draft.tint).opacity(0.42))
-                }
-                .overlay {
-                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .strokeBorder(theme.hair, lineWidth: 1)
-                }
+                .lineSpacing(2)
+                .padding(.horizontal, 13)
+                .padding(.top, 14)
                 .focused($focused)
-                .accessibilityLabel("Sticky note text")
+                .overlay(alignment: .topLeading) {
+                    if draft.text.isEmpty {
+                        Text("Write it down…")
+                            .font(Fonts.ui(15))
+                            .foregroundStyle(theme.ink2.opacity(0.62))
+                            .padding(.leading, 18)
+                            .padding(.top, 14)
+                            .allowsHitTesting(false)
+                    }
+                }
 
-            HStack(spacing: 8) {
-                Text("Tint")
-                    .font(Fonts.ui(12))
-                    .foregroundStyle(theme.ink2)
+            Divider().overlay(theme.hair)
+
+            HStack(spacing: 4) {
                 ForEach(0..<Hex.noteTints.count, id: \.self) { index in
                     Button {
                         draft.tint = index
+                        onChange(draft)
                     } label: {
                         Circle()
                             .fill(NoteTint.color(index))
-                            .frame(width: 20, height: 20)
+                            .frame(width: 13, height: 13)
                             .overlay {
-                                Circle()
-                                    .strokeBorder(theme.ink.opacity(draft.tint == index ? 0.55 : 0.08),
-                                                  lineWidth: draft.tint == index ? 1.5 : 1)
+                                Circle().strokeBorder(theme.ink.opacity(draft.tint == index ? 0.65 : 0.12),
+                                                      lineWidth: draft.tint == index ? 1.5 : 1)
                             }
+                            .frame(width: 18, height: 22)
+                            .contentShape(Rectangle())
                     }
                     .buttonStyle(.plain)
                     .accessibilityLabel("Tint \(index + 1)")
                     .accessibilityAddTraits(draft.tint == index ? .isSelected : [])
                 }
 
-                Spacer()
+                Spacer(minLength: 2)
 
-                Toggle(isOn: $draft.strike) {
-                    Text("Cross out")
-                        .font(Fonts.ui(12.5))
-                        .foregroundStyle(theme.ink2)
+                iconButton("strikethrough",
+                           label: draft.strike ? "Uncross" : "Cross out",
+                           active: draft.strike) {
+                    draft.strike.toggle()
+                    onChange(draft)
                 }
-                .toggleStyle(.checkbox)
-            }
-            .padding(.top, 14)
 
-            HStack {
-                Button("Delete", role: .destructive) {
+                iconButton("trash", label: "Delete sticky") {
                     onDelete()
-                    dismiss()
                 }
-                .buttonStyle(.plain)
-                .font(Fonts.ui(13, weight: .medium))
-                .foregroundStyle(Color(hex: Hex.choiceText))
 
-                Spacer()
-
-                Button("Cancel") { dismiss() }
-                    .keyboardShortcut(.cancelAction)
-                    .buttonStyle(.plain)
-                    .font(Fonts.ui(13))
-                    .foregroundStyle(theme.ink2)
-                    .padding(.horizontal, 14)
-                    .frame(height: 34)
-
-                Button("Save") {
-                    onSave(draft)
-                    dismiss()
+                iconButton("checkmark", label: "Done", active: true) {
+                    finish()
                 }
-                .keyboardShortcut(.defaultAction)
-                .buttonStyle(.plain)
-                .font(Fonts.ui(13, weight: .medium))
-                .foregroundStyle(theme.desk)
-                .padding(.horizontal, 18)
-                .frame(height: 34)
-                .background(theme.ink, in: Capsule())
             }
-            .padding(.top, 20)
+            .padding(.horizontal, 8)
+            .frame(height: 34)
+            .background(theme.paper.opacity(0.28))
         }
-        .padding(24)
-        .frame(width: 400)
-        .background(theme.paper)
+        .frame(width: width, height: height)
+        .background(background)
+        .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
+        .overlay {
+            RoundedRectangle(cornerRadius: 6, style: .continuous)
+                .strokeBorder(Color(hex: Hex.orange).opacity(0.42), lineWidth: 1)
+        }
+        .shadow(color: theme.shadow.opacity(0.72), radius: 22, x: 0, y: 12)
+        .background(OutsideClickMonitor(onOutside: finish))
         .onAppear { focused = true }
+        .onChange(of: draft.text) { _, _ in onChange(draft) }
+        .onExitCommand { finish() }
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel("Editing sticky note")
+    }
+
+    private func iconButton(_ system: String,
+                            label: String,
+                            active: Bool = false,
+                            action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            Image(systemName: system)
+                .font(.system(size: 11, weight: .medium))
+                .foregroundStyle(active ? theme.ink : theme.ink2)
+                .frame(width: 21, height: 21)
+                .background(active ? theme.desk.opacity(0.7) : .clear,
+                            in: RoundedRectangle(cornerRadius: 5, style: .continuous))
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .help(label)
+        .accessibilityLabel(label)
+    }
+
+    private func finish() {
+        let clean = draft.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        if clean.isEmpty {
+            onDelete()
+        } else {
+            onChange(draft)
+            onDone()
+        }
+    }
+
+    private var background: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 6, style: .continuous)
+                .fill(.ultraThinMaterial)
+            if theme.colorScheme == .dark {
+                RoundedRectangle(cornerRadius: 6, style: .continuous)
+                    .fill(Color(hex: 0x5E3E1D).opacity(0.9))
+            } else {
+                RoundedRectangle(cornerRadius: 6, style: .continuous)
+                    .fill(Color(hex: Hex.orange).opacity(0.14))
+                RoundedRectangle(cornerRadius: 6, style: .continuous)
+                    .fill(theme.paper.opacity(0.55))
+            }
+            RoundedRectangle(cornerRadius: 6, style: .continuous)
+                .fill(NoteTint.color(draft.tint).opacity(0.10))
+        }
+    }
+}
+
+/// Commits when a click lands anywhere outside the editor's own frame. AppKit's
+/// local event monitor is the reliable way to catch a click on the desk, the
+/// toolbar or the page without installing a full-screen invisible layer.
+private struct OutsideClickMonitor: NSViewRepresentable {
+    var onOutside: () -> Void
+
+    func makeNSView(context: Context) -> MonitorView {
+        let view = MonitorView()
+        view.onOutside = onOutside
+        return view
+    }
+
+    func updateNSView(_ view: MonitorView, context: Context) {
+        view.onOutside = onOutside
+    }
+
+    final class MonitorView: NSView {
+        var onOutside: () -> Void = {}
+        private var monitor: Any?
+
+        override func viewDidMoveToWindow() {
+            super.viewDidMoveToWindow()
+            removeMonitor()
+            guard window != nil else { return }
+            monitor = NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDown]) { [weak self] event in
+                guard let self, let window = self.window, event.window === window else { return event }
+                let point = self.convert(event.locationInWindow, from: nil)
+                if !self.bounds.contains(point) {
+                    self.onOutside()
+                }
+                return event
+            }
+        }
+
+        private func removeMonitor() {
+            if let monitor {
+                NSEvent.removeMonitor(monitor)
+                self.monitor = nil
+            }
+        }
+
+        deinit {
+            if let monitor { NSEvent.removeMonitor(monitor) }
+        }
     }
 }

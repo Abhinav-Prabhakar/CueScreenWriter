@@ -9,7 +9,6 @@ struct WritingView: View {
     @Environment(AppModel.self) private var model
     @Environment(\.theme) private var theme
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @State private var showTitlePage = false
 
     var body: some View {
         @Bindable var bindable = model
@@ -39,32 +38,22 @@ struct WritingView: View {
                     .animation(reduceMotion ? .linear(duration: 0.01) : .cueLamp,
                                value: model.lit)
 
-                // The desk itself takes right-clicks and dropped files. It sits
-                // *under* the page, so the editor's own menu wins over the text.
-                Color.clear
-                    .contentShape(Rectangle())
-                    .contextMenu {
-                        Button("Add Sticky Note") {
-                            model.addSticky(at: CGPoint(x: 0.15, y: 0.52))
-                        }
-                        Button("Pin a Photo…") { model.pinPhotoPanel() }
-                        Divider()
-                        Button("Add Note…") { model.beginNote() }
-                        Button("Open Title Page…") { showTitlePage = true }
-                    }
-                    .onDrop(of: [.fileURL, .image], isTargeted: nil) { providers in
-                        model.dropPin(providers)
-                    }
+                // The desk itself takes right-clicks and dropped files, at the
+                // pointer's own position. It sits *under* the page, so the
+                // editor's menu and text selection still win.
+                DeskInteractionLayer(model: model) {
+                    model.showTitlePage = true
+                }
 
                 paper(script: $bindable.currentScript, pageRect: pageRect)
 
                 DeskView(pageRect: pageRect) {
-                    showTitlePage = true
+                    model.showTitlePage = true
                 }
 
                 if model.sidebarVisible {
                     SidebarView {
-                        showTitlePage = true
+                        model.showTitlePage = true
                     }
                     .frame(width: sidebarWidth, height: sidebarHeight)
                     .position(x: size.width * 0.008125 + sidebarWidth / 2,
@@ -76,7 +65,7 @@ struct WritingView: View {
             .animation(reduceMotion ? nil : .timingCurve(0.2, 0.8, 0.2, 1, duration: 0.5),
                        value: model.sidebarVisible)
         }
-        .sheet(isPresented: $showTitlePage) {
+        .sheet(isPresented: $bindable.showTitlePage) {
             TitlePageView()
                 .environment(model)
                 .theme(model.theme)

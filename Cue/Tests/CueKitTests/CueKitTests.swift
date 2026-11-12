@@ -157,3 +157,32 @@ final class PageMetricsTests: XCTestCase {
         XCTAssertEqual(SiteMath.gutter(390), 16)
     }
 }
+
+final class UpdateVersionTests: XCTestCase {
+    func testVersionParsingAcceptsTagsAndShortForms() {
+        XCTAssertEqual(SemanticVersion("v1.2.3")?.description, "1.2.3")
+        XCTAssertEqual(SemanticVersion("1.2")?.description, "1.2.0")
+        XCTAssertEqual(SemanticVersion("2")?.description, "2.0.0")
+        XCTAssertEqual(SemanticVersion("v1.0.0-beta.2")?.description, "1.0.0-beta.2")
+        XCTAssertNil(SemanticVersion(""))
+        XCTAssertNil(SemanticVersion("release"))
+        XCTAssertNil(SemanticVersion("1.2.3.4"))
+    }
+
+    func testVersionOrdering() {
+        XCTAssertTrue(UpdateSchedule.isNewer("v1.2.0", than: "1.1.9"))
+        XCTAssertTrue(UpdateSchedule.isNewer("v2.0.0", than: "1.99.99"))
+        XCTAssertFalse(UpdateSchedule.isNewer("v1.0.0", than: "1.0.0"))
+        XCTAssertFalse(UpdateSchedule.isNewer("v1.0.0", than: "1.0.1"))
+        XCTAssertTrue(UpdateSchedule.isNewer("v1.0.0", than: "1.0.0-beta.4"))
+        XCTAssertTrue(UpdateSchedule.isNewer("v1.0.0-beta.4", than: "1.0.0-beta.2"))
+    }
+
+    func testAutomaticChecksAreMonthly() {
+        let now = Date(timeIntervalSince1970: 2_000_000_000)
+        XCTAssertTrue(UpdateSchedule.shouldCheck(lastCheck: nil, now: now))
+        XCTAssertFalse(UpdateSchedule.shouldCheck(lastCheck: now.addingTimeInterval(-29 * 86_400), now: now))
+        XCTAssertFalse(UpdateSchedule.shouldCheck(lastCheck: now.addingTimeInterval(-30 * 86_400 + 60), now: now))
+        XCTAssertTrue(UpdateSchedule.shouldCheck(lastCheck: now.addingTimeInterval(-31 * 86_400), now: now))
+    }
+}
